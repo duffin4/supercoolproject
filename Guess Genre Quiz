@@ -12,6 +12,19 @@ function buildQuiz()
 {
   const output = []
   myQuestions.forEach(currentQuestion, questionNumber)
+    const answers = []
+  for (letter in currentQuestion.answers)
+  {
+    answers.push
+    (
+      <label>
+      <input type = "button" name= "question${questionNumber}" value = "${letter}">
+      ${letter} :
+      ${currentQuestion.answers[letter]}
+      <label>
+    )
+  }
+
 }
 
 function showResults()
@@ -41,6 +54,30 @@ const myQuestions
     b: "pasta"
     c: "fruit"
     d: "bacon"
+  }
+  Question3: "What's your favorite hobby?"
+  Answers:
+  {
+    a: "dancing"
+    b: "reading"
+    c: "gaming"
+    d: "bowling"
+  }
+  Question4: "What kind of movies do you like?"
+  Answers:
+  {
+    a: "action/spies/superheros"
+    b: "comedy"
+    c: "horror/mystery/thriller"
+    d: "drama/romance/biopic"
+  }
+  Question5: "Where did you spend free time as a kid?"
+  Answers:
+  {
+    a: "my house & my friends' houses"
+    b: "my school, a playground, the park"
+    c: "the mall"
+    d: "an arcade, library, skating rink"
   }
   for(letter in currentQuestion.answers)
   {
