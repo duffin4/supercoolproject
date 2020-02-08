@@ -7,16 +7,33 @@ const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 var currentQuestion = 0;
 var questionNumber = 0;
+var winner = "";
 
 function buildQuiz()
 {
   const output = []
   myQuestions.forEach(currentQuestion, questionNumber)
+    const answers = []
+  for (letter in currentQuestion.answers)
+  {
+    answers.push
+    (
+      <label>
+      <input type = "button" name= "question${questionNumber}" value = "${letter}">
+      ${letter} :
+      ${currentQuestion.answers[letter]}
+      <label>
+    )
+  }
+  quizContainer.innerHTML = output.join('');
 }
 
 function showResults()
 {
-  //code here: caller submitButton then we need it to load on the screen
+ var numAs = 0
+  var numBs = 0
+  var numCs = 0
+  var numDs = 0
 }
 
 buildQuiz();
@@ -33,8 +50,15 @@ const myQuestions
     c: "try new things"
     d: "meet up with friends"
   }
-  //store answer for later
-  Question2: "What's your favorite food?"
+  if (answer.equals(a))
+    numAs++
+  if (answer.equals(b))
+    numBs++
+  if (answer.equals(c))
+    numCs++
+  if (answer.equals(d))
+    numDs++
+ Question2: "What's your favorite food?"
   Answers:
   {
     a: "ice cream"
@@ -42,6 +66,62 @@ const myQuestions
     c: "fruit"
     d: "bacon"
   }
+  if (answer.equals(a))
+    numAs++
+  if (answer.equals(b))
+    numBs++
+  if (answer.equals(c))
+    numCs++
+  if (answer.equals(d))
+    numDs++
+  Question3: "What's your favorite hobby?"
+  Answers:
+  {
+    a: "dancing"
+    b: "reading"
+    c: "gaming"
+    d: "bowling"
+  }
+  if (answer.equals(a))
+    numAs++
+  if (answer.equals(b))
+    numBs++
+  if (answer.equals(c))
+    numCs++
+  if (answer.equals(d))
+    numDs++
+  Question4: "What kind of movies do you like?"
+  Answers:
+  {
+    a: "action/spies/superheros"
+    b: "comedy"
+    c: "horror/mystery/thriller"
+    d: "drama/romance/biopic"
+  }
+  if (answer.equals(a))
+    numAs++
+  if (answer.equals(b))
+    numBs++
+  if (answer.equals(c))
+    numCs++
+  if (answer.equals(d))
+    numDs++
+  Question5: "Where did you spend free time as a kid?"
+  Answers:
+  {
+    a: "my house & my friends' houses"
+    b: "my school, a playground, the park"
+    c: "the mall"
+    d: "an arcade, library, skating rink"
+  }
+  if (answer.equals(a))
+    numAs++
+  if (answer.equals(b))
+    numBs++
+  if (answer.equals(c))
+    numCs++
+  if (answer.equals(d))
+    numDs++
   for(letter in currentQuestion.answers)
   {
     answers.push
@@ -52,4 +132,13 @@ const myQuestions
        ${currentQuestion.answers[letter]}
      </label>`
     );
-  } 
+  }
+  if (numAs > numBs & numAs > numCs & numAs > numDs)
+    winner = "Dance";
+  if (numBs > numAs & numBs > numCs & numBs > numDs)
+    winner = "Rock";
+  if (numCs > numAs & numCs > numBs & numCs > numDs)
+    winner = "Pop";
+  if (numDs > numAs & numDs > numBs & numDs > numCs)
+    winner = "Folk"; 
+}
